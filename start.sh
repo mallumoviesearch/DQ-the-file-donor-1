@@ -1,7 +1,7 @@
 if [ -z $UPSTREAM_REPO ]
 then
   echo "Cloning main Repository"
-  git clone DQ-the-file-donor-1git /DQ-The-File-Donor
+  git clone https://github.com/mallumoviesearch/DQ-the-file-donor-1.git /DQ-The-File-Donor
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /DQ-The-File-Donor
