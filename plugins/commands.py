@@ -46,17 +46,8 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('♚ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('⌬ Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK)
-                ],[
-                    InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about'),
-                    InlineKeyboardButton('Iɴʟɪɴᴇ Sᴇᴀʀᴄʜ ☌', switch_inline_query_current_chat='')
-                ],[
-                    InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
-                  ]]
+            InlineKeyboardButton('⚚ J̳O̳I̳N̳ ̳T̳O̳ ̳B̳O̳T̳ ̳G̳R̳O̳U̳P̳ ⚚', url='https://t.me/mallu_movie_search')
+             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -153,13 +144,11 @@ async def start(client, message):
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                          InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                       ],[
-                          InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/creatorbeatz")
-                         ]
+                          [
+                           [
+                            InlineKeyboardButton('𝑴𝒐𝒗𝒊𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍', url=f"https://t.me/+fAHy3KCjmtthOWRl"),
+                            InlineKeyboardButton('𝑩𝒐𝒕 𝑮𝒓𝒐𝒖𝒑', url=f"https://t.me/mallu_movie_search")
+                          ]
                         ]
                     )
                 )
@@ -172,13 +161,11 @@ async def start(client, message):
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                          InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                       ],[
-                          InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/creatorbeatz")
-                         ]
+                          [
+                           [
+                            InlineKeyboardButton('𝑴𝒐𝒗𝒊𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍', url=f"https://t.me/+fAHy3KCjmtthOWRl"),
+                            InlineKeyboardButton('𝑩𝒐𝒕 𝑮𝒓𝒐𝒖𝒑', url=f"https://t.me/mallu_movie_search")
+                          ]
                         ]
                     )
                 )
@@ -243,14 +230,13 @@ async def start(client, message):
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup(
-                    [
-                     [
-                      InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                      InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                   ],[
-                      InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/creatorbeatz")
-                     ]
-                    ]
+                          [
+                           [
+                            InlineKeyboardButton('𝑴𝒐𝒗𝒊𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍', url=f"https://t.me/+fAHy3KCjmtthOWRl"),
+                            InlineKeyboardButton('𝑩𝒐𝒕 𝑮𝒓𝒐𝒖𝒑', url=f"https://t.me/mallu_movie_search")
+                          ]
+                        ]
+                    )
                 )
             )
             filetype = msg.media
@@ -286,16 +272,14 @@ async def start(client, message):
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         reply_markup=InlineKeyboardMarkup(
-            [
-             [
-              InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-              InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-           ],[
-              InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/creatorbeatz")
-             ]
-            ]
-        )
-    )
+                          [
+                           [
+                            InlineKeyboardButton('𝑴𝒐𝒗𝒊𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍', url=f"https://t.me/+fAHy3KCjmtthOWRl"),
+                            InlineKeyboardButton('𝑩𝒐𝒕 𝑮𝒓𝒐𝒖𝒑', url=f"https://t.me/mallu_movie_search")
+                          ]
+                        ]
+                    )
+                )
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
