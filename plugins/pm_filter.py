@@ -38,6 +38,24 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
+
+
+@Client.on_callback_query(filters.regex('^dm'))
+async def imdb_callback(bot: Client, query: CallbackQuery):
+    i, movie = query.data.split('#')
+    imdb = await get_poster(query=movie, id=True)
+    
+    if imdb.get('poster'):
+        await query.answer(f"Title {imdb.get('title')}", show_alert=True)
+        await query.message.delete()
+    else:
+        await query.message.edit(f"Title {imdb.get('title')}")
+    await query.answer(f"Title {imdb.get('title')}", show_alert=True)
+        
+
+
+
+
 @Client.on_message(filters.group | filters.private  & filters.text & filters.incoming)
 async def give_filter(client, message):
     if message.chat.id != SUPPORT_CHAT_ID:
@@ -1307,16 +1325,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
 
-    elif query.data == "dm":
-        i, movie = query.data.split('#')
-        imdb = await get_poster(query=movie, id=True)
-        
-        if imdb.get('poster'):
-#            await query.message.reply_text(text=f"IMDb Data:\n\n🏷 Title:<a href={imdb['url']}>{imdb.get('title')}</a>\n🎭 Genres: {imdb.get('genres')}\n📆 Year:<a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n🖋 StoryLine: <code>{imdb.get('plot')} </code>", reply_markup=InlineKeyboardMarkup(btn))
-#            await query.message.delete()
-#        else:
-            await query.message.edit(f"IMDb Data:\n\n🏷 Title:<a href={imdb['url']}>{imdb.get('title')}</a>\n🎭 Genres: {imdb.get('genres')}\n📆 Year:<a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n🖋 StoryLine: <code>{imdb.get('plot')} </code>", reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
-#        await query.answer()
+
 
 
 
