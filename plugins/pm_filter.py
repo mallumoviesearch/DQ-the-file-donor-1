@@ -1312,7 +1312,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         imdb=await get_poster(search)
         if imdb and imdb.get('poster'):
         
-            await query.answer(f"Query: {search} Title: {imdb.get('title')}", show_alert=True
+            await query.answer(f"Query: {search} Title: {imdb.get('title')}", show_alert=True)
 
 
 
