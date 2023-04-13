@@ -1310,7 +1310,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "dm":
                           
         imdb = await get_poster(search) if IMDB else None
-        search = imdb['title']
+        search = IMDB_TEMPLATE
         await query.answer("{search}", show_alert=True)
 
 
