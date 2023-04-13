@@ -1308,10 +1308,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
     elif query.data == "dm":
-        search = query.message.text                 
-        imdb = await get_poster(search) if IMDB else None        
-        await query.answer(IMDB_TEMPLATE, show_alert=True)
-
+        search = query.message.text
+        imdb=await get_poster(search)
+        if imdb and imdb.get('poster'):
+            await query.answer(f"<b>Query: {search}</b> \ Title: <a href={imdb['url']}>{imdb.get('title')}",show_alert=True
+        elif imdb:
+            await query.answer(f"<b>Query: {search}</b> \ Title: <a href={imdb['url']}>{imdb.get('title')}",show_alert=True
+        else:
+            await query.answer(f"<b>Query: {search}</b> \ Title: <a href={imdb['url']}>{imdb.get('title')}",show_alert=True
+        
 
 
     elif query.data == "malayalam":
