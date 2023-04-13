@@ -1258,6 +1258,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ sᴜғғɪᴄɪᴀɴᴛ ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
 
+
+
+
+    elif query.data == "dm":
+        await query.answer(f"imdb['title']", show_alert=True)
+
+
+
     elif query.data == "malayalam":
         await query.answer(text=script.MALAYALAM_TXT, show_alert=True)
 
@@ -2592,6 +2600,9 @@ async def auto_filter(client, msg, spoll=False):
 
     btn.insert(0, [
         InlineKeyboardButton("⭕️ ʟᴀɴɢᴜᴀɢᴇs ⭕️", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+    ])
+    btn.insert(1, [
+        InlineKeyboardButton(f"{search}", "dm")
     ])
 
     if offset != "":
