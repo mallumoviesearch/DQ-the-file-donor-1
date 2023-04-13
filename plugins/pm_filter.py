@@ -1308,10 +1308,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
     elif query.data == "dm":
-        search = query.message.text
-        files, offset, total_results = await get_search_results(query.message.chat.id ,search.lower(), offset=0, filter=True)
-        settings = await get_settings(query.message.chat.id)
-        imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
+        search = query.message.text 
+        settings = await get_settings(query.message.chat.id)          
+        imdb = await get_poster(search) if settings["imdb"] else None
         await query.answer(imdb['title'], show_alert=True)
 
 
