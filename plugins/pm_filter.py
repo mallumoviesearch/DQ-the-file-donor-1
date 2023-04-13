@@ -42,16 +42,16 @@ SPELL_CHECK = {}
 
 @Client.on_callback_query(filters.regex('^dm'))
 async def imdb_callback(bot: Client, query: CallbackQuery):
-    i, title = query.data.split('#')
-    imdb = await get_poster(query=title, id=True)
-    
-    if imdb.get('poster'):
-        await query.answer(f"Title {imdb.get('title')}", show_alert=True)
-        await query.message.delete()
-    else:
-        await query.message.edit(f"Title {imdb.get('title')}")
-    await query.answer(f"Title {imdb.get('title')}", show_alert=True)
+
+        imdb=await get_poster(query)
+        if imdb and imdb.get('poster'):
+            await query.answer(f"Title {imdb.get('title')}", show_alert=True)        
+        elif imdb:
+            await query.answer(f"Title {imdb.get('title')}", show_alert=True)        
+        else:
+            await query.answer(f"Title {imdb.get('title')}", show_alert=True)
         
+    
 
 
 
