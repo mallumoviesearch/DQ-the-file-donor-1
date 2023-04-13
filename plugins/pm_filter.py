@@ -1308,16 +1308,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
     elif query.data == "dm":
-        search = query.message.text
-        imdb=await get_poster(search)
-        if imdb and imdb.get('poster'):
+        i, movie = query.data.split('#')
+        imdb = await get_poster(query=movie, id=True)
         
-            await query.answer(f"Query: {search} Title: {imdb.get('title')}", show_alert=True)
-        elif imdb:
-            await query.answer(f"Query: {search} Title: {imdb.get('title')}", show_alert=True)
+        if imdb.get('poster'):
+            await query.message.reply_text(text=f"IMDb Data:\n\n🏷 Title:<a href={imdb['url']}>{imdb.get('title')}</a>\n🎭 Genres: {imdb.get('genres')}\n📆 Year:<a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n🖋 StoryLine: <code>{imdb.get('plot')} </code>", reply_markup=InlineKeyboardMarkup(btn))
+            await query.message.delete()
         else:
-            await query.answer(f"Query: {search} Title: {imdb.get('title')}", show_alert=True)
-        
+            await query.message.edit(f"IMDb Data:\n\n🏷 Title:<a href={imdb['url']}>{imdb.get('title')}</a>\n🎭 Genres: {imdb.get('genres')}\n📆 Year:<a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10\n🖋 StoryLine: <code>{imdb.get('plot')} </code>", reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+        await query.answer()
+
 
 
     elif query.data == "malayalam":
