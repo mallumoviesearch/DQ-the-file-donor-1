@@ -42,6 +42,11 @@ support_chat_id = environ.get('SUPPORT_CHAT_ID')
 reqst_channel = environ.get('REQST_CHANNEL_ID')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
+login_channel = environ.get('LOGIN_CHANNEL')
+LOGIN_CHANNEL = int(login_channel) if login_channel and id_pattern.search(login_channel) else None
+
+
+SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
@@ -83,6 +88,16 @@ BR_IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", f"{script.BR_TEMPLATE_TXT}")
 BATCH_LINK = environ.get('BATCH_LINK',"https://t.me/nasrani_update")
 
 
+MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/nasrani_update")
+FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/+A9emw13aEyxkYzE1")
+MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳𝑳 𝑴𝒀 𝑭𝑬𝑨𝑻𝑼𝑹𝑬𝑺')
+FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
+
+LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
+IMDB_DLT_TIME = int(environ.get('IMDB_DLT_TIME', 600))
+
+HRK_APP_NAME = environ.get('HRK_APP_NAME', 'mybots')
+HRK_API = environ.get('HRK_API', '0')
 
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
