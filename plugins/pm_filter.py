@@ -42,7 +42,7 @@ SPELL_CHECK = {}
 
 @Client.on_callback_query(filters.regex('^dm'))
 async def imdb_callback(bot: Client, query: CallbackQuery):
-    i, movie = query.data.split('#')
+    title, search = query.data.split('#')
     imdb = await get_poster(query=movie, id=True)
     
     if imdb.get('poster'):
